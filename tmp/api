@@ -1,0 +1,18 @@
+#导入
+from flask import Flask,request
+
+#用当前模块实例化一个Flask对象
+
+app = Flask(__name__)
+
+#写个函数
+@app.route("/add",methods=["GET","POST"])    #挂载接口路径，指定请求方法
+def add():
+    a =request.values.get("a")
+    b =request.values.get("b")
+    sum = int(a)+int(b)
+    return str(sum)
+
+#运行
+
+app.run()
